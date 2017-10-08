@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # @Author: Lime
 # @Date:   2013-10-28 13:39:48
-# @Last Modified by:   qkdreyer
-# @Last Modified time: 2017-08-14 16:48:32
+# @Last Modified by:   Radek Krzak
+# @Last Modified time: 2017-10-08 17:30:41
 
 import os
 import sys
@@ -465,7 +465,7 @@ class FileHeaderNewFileCommand(sublime_plugin.WindowCommand):
             sublime.error_message('File exists!')
             return
 
-        header = get_header_content(syntax_type, path)
+        header = render_template(syntax_type, options={'path': path})
 
         try:
             with open(path, 'w+') as f:
